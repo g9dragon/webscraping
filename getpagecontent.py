@@ -22,6 +22,7 @@ def getcontent(pageurl):
     #Transform CmtFile URL
     myurl='https://usi-saas.vnexpress.net/index/get?callback=jQuery&offset=0&'+h[bstr:estr].replace("article","object").replace("_","").replace('"','').replace(':','=').replace(',','&')
     jsfile=urllib.request.urlopen(myurl)
+    #Read js file
     jsfct=jsfile.read().decode('utf8').replace(');','').replace("/**/ typeof jQuery === 'function' && jQuery(","")
     cmtd=[]
     particle['comment']=cmtd=getcmt.clcmt(jsfct,0,cmtd)
